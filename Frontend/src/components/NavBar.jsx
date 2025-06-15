@@ -32,8 +32,8 @@ function NavBar({ onThemeChange }) {
         <ToggleButton
           modeA="light"
           modeB="dark"
-          iconA="☀️"
-          iconB="🌙"
+          iconA="♦️"
+          iconB="♠️"
           storageKey="theme"
           onToggle={onThemeChange}
         />
