@@ -22,7 +22,7 @@ function Homepage() {
             <h1 className="text-4xl md:text-6xl text-white font-bold dark:text-[#948979] ">{data.Name}</h1>
             <ReactTyped
                 strings={data.roles}
-                typeSpeed={50}
+                typeSpeed={100}
                 backSpeed={30}
                 loop
                 className="text-xl font-semibold text-white dark:text-[#948979] "
