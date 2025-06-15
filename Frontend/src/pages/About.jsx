@@ -13,7 +13,7 @@ function About() {
   
 
   return (
-    <div id='About' style={{backgroundColor:'#f5f5f5'}} className="w-full lg:h-screen flex flex-col lg:flex-row font-montserrat">
+    <div id='About' className="w-full lg:h-screen bg-[#f5f5f5] dark:bg-[#393E46] flex flex-col lg:flex-row font-montserrat">
        {/*Left section*/}
        <div className="w-full lg:w-[50vw] lg:min-h-screen flex flex-col items-center justify-center">
         <img src={About_data.AbtImage} alt="Profile Image"  

@@ -30,9 +30,9 @@ function Services() {
   ];
 
   return (
-    <div id='Projects' style={{ backgroundColor: '#254D70' }} className="w-full min-h-screen px-4 py-12 font-montserrat text-white flex flex-col items-center justify-center">
+    <div id='Projects' className="w-full min-h-screen bg-[#254D70] dark:bg-black px-4 py-12 font-montserrat text-white dark:text-[#948979] flex flex-col items-center justify-center">
       <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-8">Projects</h1>
-      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-6xl">
+      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 w-full max-w-6xl">
         {Service_data.map((service, index) => (
           <li key={index}>
             <ServiceCard

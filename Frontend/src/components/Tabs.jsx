@@ -1,124 +1,92 @@
-import { useState } from 'react'
-import { Tab } from '@headlessui/react'
+// components/Tabs.jsx
+import * as React from 'react';
+import PropTypes from 'prop-types';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import Box from '@mui/material/Box';
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
-
-export default function ServiceTab() {
-  let [categories] = useState({
-    Recent: [
-      {
-        id: 1,
-        title: 'Does drinking coffee make you smarter?',
-        date: '5h ago',
-        commentCount: 5,
-        shareCount: 2,
-      },
-      {
-        id: 2,
-        title: "So you've bought coffee... now what?",
-        date: '2h ago',
-        commentCount: 3,
-        shareCount: 2,
-      },
-    ],
-    Popular: [
-      {
-        id: 1,
-        title: 'Is tech making coffee better or worse?',
-        date: 'Jan 7',
-        commentCount: 29,
-        shareCount: 16,
-      },
-      {
-        id: 2,
-        title: 'The most innovative things happening in coffee',
-        date: 'Mar 19',
-        commentCount: 24,
-        shareCount: 12,
-      },
-    ],
-    Trending: [
-      {
-        id: 1,
-        title: 'Ask Me Anything: 10 answers to your questions about coffee',
-        date: '2d ago',
-        commentCount: 9,
-        shareCount: 5,
-      },
-      {
-        id: 2,
-        title: "The worst advice we've ever heard about coffee",
-        date: '4d ago',
-        commentCount: 1,
-        shareCount: 2,
-      },
-    ],
-  })
+function CustomTabPanel(props) {
+  const { children, value, index, ...other } = props;
 
   return (
-    <div className="w-full h-full m-8 p-8">
-      <Tab.Group>
-        <Tab.List className="flex space-x-1 rounded-xl bg-blue-900/20 p-1">
-          {Object.keys(categories).map((category) => (
-            <Tab
-              key={category}
-              className={({ selected }) =>
-                classNames(
-                  'w-full rounded-lg py-2.5 text-sm font-medium leading-5',
-                  'ring-white/60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2',
-                  selected
-                    ? 'bg-white text-blue-700 shadow'
-                    : 'text-blue-100 hover:bg-white/[0.12] hover:text-white'
-                )
-              }
-            >
-              {category}
-            </Tab>
-          ))}
-        </Tab.List>
-        <Tab.Panels className="mt-2">
-          {Object.values(categories).map((posts, idx) => (
-            <Tab.Panel
-              key={idx}
-              className={classNames(
-                'rounded-xl bg-white p-3',
-                'ring-white/60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2'
-              )}
-            >
-              <ul>
-                {posts.map((post) => (
-                  <li
-                    key={post.id}
-                    className="relative rounded-md p-3 hover:bg-gray-100"
-                  >
-                    <h3 className="text-sm font-medium leading-5">
-                      {post.title}
-                    </h3>
-
-                    <ul className="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500">
-                      <li>{post.date}</li>
-                      <li>&middot;</li>
-                      <li>{post.commentCount} comments</li>
-                      <li>&middot;</li>
-                      <li>{post.shareCount} shares</li>
-                    </ul>
-
-                    <a
-                      href="#"
-                      className={classNames(
-                        'absolute inset-0 rounded-md',
-                        'ring-blue-400 focus:z-10 focus:outline-none focus:ring-2'
-                      )}
-                    />
-                  </li>
-                ))}
-              </ul>
-            </Tab.Panel>
-          ))}
-        </Tab.Panels>
-      </Tab.Group>
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: { xs: 1, md: 3 } }}>
+          {children}
+        </Box>
+      )}
     </div>
-  )
+  );
 }
+
+CustomTabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
+};
+
+function a11yProps(index) {
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
+  };
+}
+
+export default function BasicTabs({ tabLabels, tabContents }) {
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  return (
+    <div className="w-full px-4 sm:px-6 md:px-10 py-8 bg-[#f5f5f5] dark:bg-[#393E46]  transition-colors duration-300">
+      <Box
+        sx={{
+          width: '100%',
+          maxWidth: '768px',
+          mx: 'auto',
+          fontFamily: 'Montserrat Alternates',
+          bgcolor: 'background.paper',
+          borderRadius: 2,
+          boxShadow: 3,
+          color: 'inherit',
+        }}
+      >
+        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            aria-label="custom reusable tabs"
+            variant="fullWidth"
+            textColor="inherit"
+            TabIndicatorProps={{
+              sx: { backgroundColor: '#1976d2' },
+            }}
+          >
+            {tabLabels.map((label, index) => (
+              <Tab key={index} label={label} {...a11yProps(index)} />
+            ))}
+          </Tabs>
+        </Box>
+
+        {tabContents.map((content, index) => (
+          <CustomTabPanel key={index} value={value} index={index}>
+            {content}
+          </CustomTabPanel>
+        ))}
+      </Box>
+    </div>
+  );
+}
+
+BasicTabs.propTypes = {
+  tabLabels: PropTypes.arrayOf(PropTypes.string).isRequired,
+  tabContents: PropTypes.arrayOf(PropTypes.node).isRequired,
+};

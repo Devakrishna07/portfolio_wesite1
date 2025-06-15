@@ -14,24 +14,24 @@ function Homepage() {
     }
 
   return (
-    <div id="Home" style={{backgroundColor:'#254D70'}} className="w-screen min-h-screen flex flex-col-reverse md:flex-row items-center justify-center font-montserrat px-4 sm:px-6 md:px-12 py-8 gap-y-10 md:gap-y-0">
+    <div id="Home" className="w-screen min-h-screen bg-[#254D70] dark:bg-black flex flex-col-reverse md:flex-row items-center justify-center font-montserrat px-4 sm:px-6 md:px-12 py-8 gap-y-10 md:gap-y-0">
 
         {/*left section*/}
         <div className="md:w-[50dvw] w-full md:min-h-screen flex flex-col items-center md:items-start justify-center mb-6 sm:mb-8 md:mb-0 text-center md:text-left space-y-4">
-            <h3 className="text-xl md:text-2xl mt-4 text-white">{data.welcome_text}</h3>
-            <h1 className="text-4xl md:text-6xl text-white font-bold">{data.Name}</h1>
+            <h3 className="text-xl md:text-2xl mt-4 text-white dark:text-[#948979] ">{data.welcome_text}</h3>
+            <h1 className="text-4xl md:text-6xl text-white font-bold dark:text-[#948979] ">{data.Name}</h1>
             <ReactTyped
                 strings={data.roles}
                 typeSpeed={30}
                 backSpeed={30}
                 loop
-                className="text-xl font-semibold text-white"
+                className="text-xl font-semibold text-white dark:text-[#948979] "
             />
         </div>
 
         {/*right section*/}
         <div className="w-full md:w-[50dvw] md:h-screen flex items-center justify-center">
-            <div className="w-[70vw] sm:w-[60vw] md:w-[25dvw] md:h-[25dvw] bg-blue-500 rounded-full overflow-hidden shadow-lg">
+            <div className="w-[70vw] sm:w-[60vw] md:w-[25dvw] md:h-[25dvw] bg-blue-500 dark:bg-[#393E46] rounded-full overflow-hidden shadow-lg">
                 <img src={data.profileImg} alt="profile image" 
                 className="w-full h-full object-cover"/>
             </div>
