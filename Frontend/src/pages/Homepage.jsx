@@ -25,7 +25,7 @@ function Homepage() {
                 typeSpeed={100}
                 backSpeed={50}
                 loop
-                backDelay={5000}
+                backDelay={2000}
                 className="text-xl font-semibold text-white dark:text-[#948979] "
             />
         </div>
