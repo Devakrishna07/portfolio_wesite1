@@ -23,7 +23,7 @@ function Homepage() {
             <ReactTyped
                 strings={data.roles}
                 typeSpeed={100}
-                backSpeed={30}
+                backSpeed={100}
                 loop
                 className="text-xl font-semibold text-white dark:text-[#948979] "
             />
