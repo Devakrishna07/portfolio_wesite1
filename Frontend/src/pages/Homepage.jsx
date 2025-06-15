@@ -23,9 +23,9 @@ function Homepage() {
             <ReactTyped
                 strings={data.roles}
                 typeSpeed={100}
-                backSpeed={100}
+                backSpeed={50}
                 loop
-                startDelay={20000}
+                backDelay={20000}
                 className="text-xl font-semibold text-white dark:text-[#948979] "
             />
         </div>
