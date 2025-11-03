@@ -73,3 +73,10 @@
   font-weight: 400;
   font-style: normal;
 }
+
+@font-face {
+  font-family: moglandemo;
+  src: url('./assets/fonts/Moglandemo.ttf');
+  font-weight: 400;
+  font-style: italic;
+}

@@ -5,7 +5,8 @@ module.exports = {
   theme: {
     extend: {
 		fontFamily: {
-			typographica: ['typographica', 'sans-serif']
+			typographica: ['typographica', 'sans-serif'],
+			moglandemo: ['moglandemo', 'sans-serif'],
 		},
       keyframes: {
         moveHorizontal: {
