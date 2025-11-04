@@ -1,5 +1,5 @@
 import React from "react";
-import { TabsMyUI } from "../components/Myui/TabsMyUI";
+import { TabsMyUI } from "../components/Myui/Tabsmyui";
 import cert1 from '../assets/images/djangoudemy.png';
 import cert2 from '../assets/images/djangokimo.jpg';
 import cert3 from '../assets/images/reactlt.jpg';
