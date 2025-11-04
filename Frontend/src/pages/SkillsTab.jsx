@@ -16,8 +16,6 @@ export const SkillsTab = () => {
   const frameworks = [
     { name: "React.js", level: 90 },
     { name: "TailwindCSS", level: 85 },
-    { name: "Node.js", level: 75 },
-    { name: "Express", level: 70 },
     { name: "Django", level: 65 },
   ];
 
@@ -35,14 +33,14 @@ export const SkillsTab = () => {
   };
 
   return (
-    <div className="w-full max-w-xl text-gray-300 pt-5">
+    <div className="w-full max-w-xl text-gray-300 mt-5 p-2 bg-white/10 rounded-xl shadow-lg ">
       {/* Sub Tabs */}
-      <div className="flex border-b border-gray-700 mb-4">
+      <div className="flex border-b border-gray-700 mb-4 shadow-lg shadow-purple-400/30 font-typographica">
         {Object.keys(sections).map((section) => (
           <button
             key={section}
             onClick={() => setActive(section)}
-            className={`flex-1 py-2 text-sm font-medium transition-colors duration-200 ${
+            className={`flex-1 py-2 text-2xl text-white/40 font-medium transition-colors duration-200 ${
               active === section
                 ? "border-b-2 border-blue-500 text-blue-400"
                 : "text-gray-400 hover:text-gray-200"

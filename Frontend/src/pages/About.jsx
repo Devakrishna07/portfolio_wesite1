@@ -13,7 +13,7 @@ function About() {
         </div>
 
         {/*right section */}
-        <div className='w-[70%] h-[90vh] flex flex-col items-center justify-start'>
+        <div className='w-[50%] h-[90vh] flex flex-col items-center justify-start'>
             <AboutTabs />
             <SkillsTab />
         </div>

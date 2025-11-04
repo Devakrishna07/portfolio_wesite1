@@ -6,7 +6,7 @@ export const SkillBar = ({ name, level }) => {
     <div className="mb-4">
       {/* Skill name and percentage */}
       <div className="flex justify-between mb-1">
-        <span className="text-sm font-medium text-blue-400">{name}</span>
+        <span className="text-sm font-semibold font-moglandemo text-blue-400">{name}</span>
         <span className="text-sm text-gray-400">{level}%</span>
       </div>
 

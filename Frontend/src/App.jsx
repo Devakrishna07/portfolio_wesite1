@@ -9,7 +9,7 @@ import Contact from './pages/Contact'
 const App = () => {
   return (
    <BrowserRouter>
-   <div className='w-full min-h-screen flex overflow-hidden'>
+   <div className='w-full min-h-screen flex overflow-hidden no-scrollbar'>
     <Routes>
       <Route path='/' element={<Mainpage />} />
       <Route path='/home' element={<Homepage />} />
