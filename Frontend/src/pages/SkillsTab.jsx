@@ -33,16 +33,16 @@ export const SkillsTab = () => {
   };
 
   return (
-    <div className="w-full max-w-xl text-gray-300 mt-5 p-2 bg-white/10 rounded-xl shadow-lg ">
+    <div className="w-[90%] sm:w-[85%] md:w-[80%] lg:w-full max-w-xl text-gray-300 mt-5 p-3 sm:p-4 bg-white/10 rounded-xl shadow-lg">
       {/* Sub Tabs */}
-      <div className="flex border-b border-gray-700 mb-4 shadow-lg shadow-purple-400/30 font-typographica">
+      <div className="flex flex-wrap justify-center border-b border-gray-700 mb-4 shadow-lg shadow-purple-400/30 font-typographica overflow-x-auto no-scrollbar">
         {Object.keys(sections).map((section) => (
           <button
             key={section}
             onClick={() => setActive(section)}
-            className={`flex-1 py-2 text-2xl text-white/40 font-medium transition-colors duration-200 ${
+            className={`flex-1 min-w-[100px] text-center py-2 text-base sm:text-lg md:text-xl lg:text-2xl font-medium transition-colors duration-200 ${
               active === section
-                ? "border-b-2 border-blue-500 text-blue-400"
+                ? "border-b-2 border-purple-500 text-purple-400"
                 : "text-gray-400 hover:text-gray-200"
             }`}
           >
@@ -59,6 +59,7 @@ export const SkillsTab = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.3 }}
+          className="w-full"
         >
           {sections[active].map((item, i) => (
             <SkillBar key={i} name={item.name} level={item.level} />
