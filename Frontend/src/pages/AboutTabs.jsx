@@ -3,11 +3,10 @@ import { TabsMyUI } from "../components/Myui/Tabsmyui";
 import cert1 from '../assets/images/djangoudemy.png';
 import cert2 from '../assets/images/djangokimo.jpg';
 import cert3 from '../assets/images/reactlt.jpg';
- // replace with your image path
 
 export const AboutTabs = () => {
   const education = (
-    <div className="space-y-2">
+    <div className="space-y-2 text-sm sm:text-base md:text-lg">
       <p><span className="font-semibold text-white">Name:</span> Deva Prasad NR</p>
       <p><span className="font-semibold text-white">College:</span> College of Engineering Poonjar (CEP)</p>
       <p><span className="font-semibold text-white">Degree:</span> B.Tech in Computer Science & Engineering</p>
@@ -17,9 +16,9 @@ export const AboutTabs = () => {
   );
 
   const experience = (
-    <div className="space-y-3">
+    <div className="space-y-3 text-sm sm:text-base md:text-lg">
       <div>
-        <p className="font-semibold text-blue-400 flex justify-between items-center ">Webmaster <span>2024 - present</span></p>
+        <p className="font-semibold text-blue-400 flex justify-between items-center">Webmaster <span>2024 - present</span></p>
         <p>College of Engineering Poonjar</p>
       </div>
       <div>
@@ -34,42 +33,19 @@ export const AboutTabs = () => {
   );
 
   const certifications = (
-    <div className="space-y-3">
-      <div className="flex items-center gap-3">
-        <img
-          src={cert1}
-          alt="Django masterclass"
-          className="w-46 h-32 rounded-lg object-cover"
-        />
-        <div>
-          <p className="font-semibold text-blue-400">Django masterclass</p>
-          <p>From udemy — June 2025</p>
-        </div>
-      </div>
-
-      <div className="flex items-center gap-3">
-        <img
-          src={cert2}
-          alt="Introduction to Django"
-          className="w-46 h-32 rounded-lg object-cover"
-        />
-        <div>
-          <p className="font-semibold text-blue-400">Introduction to django</p>
-          <p>From KIMO.ai — July 2024</p>
-        </div>
-      </div>
-
-      <div className="flex items-center gap-3">
-        <img
-          src={cert3}
-          alt="React Frontend"
-          className="w-46 h-32 rounded-lg object-cover"
-        />
-        <div>
-          <p className="font-semibold text-blue-400">Introduction to React</p>
-          <p>From learntube — Februvary 2025</p>
-        </div>
-      </div>
+    <div className="space-y-4">
+      {[{img: cert1, title: "Django masterclass", org: "Udemy", date: "June 2025"},
+        {img: cert2, title: "Introduction to Django", org: "KIMO.ai", date: "July 2024"},
+        {img: cert3, title: "Introduction to React", org: "Learntube", date: "February 2025"}]
+        .map((cert, i) => (
+          <div key={i} className="flex flex-row items-center gap-3 sm:gap-4 text-sm sm:text-base md:text-lg">
+            <img src={cert.img} alt={cert.title} className="w-48 h-28 sm:w-40 sm:h-24 rounded-lg object-cover" />
+            <div className="text-center sm:text-left">
+              <p className="font-semibold text-blue-400">{cert.title}</p>
+              <p>From {cert.org} — {cert.date}</p>
+            </div>
+          </div>
+      ))}
     </div>
   );
 
@@ -80,7 +56,7 @@ export const AboutTabs = () => {
   ];
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center w-full">
       <TabsMyUI tabs={tabs} />
     </div>
   );

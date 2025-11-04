@@ -5,22 +5,21 @@ import { motion, AnimatePresence } from "framer-motion";
 export const SkillsTab = () => {
   const [active, setActive] = useState("Tools");
 
-  // Skill data
   const tools = [
     { name: "VS Code", level: 90 },
     { name: "Git & GitHub", level: 85 },
     { name: "Postman", level: 80 },
     { name: "Figma", level: 75 },
-    {name:'web hosting platforms', level:60},
+    { name: "Web Hosting Platforms", level: 60 },
   ];
 
   const frameworks = [
     { name: "React.js", level: 90 },
     { name: "TailwindCSS", level: 85 },
     { name: "Django", level: 65 },
-    {name: "HTML5", level:80},
-    {name: "CSS5", level:70},
-    {name: "Postgresql & Mysql", level:60},
+    { name: "HTML5", level: 80 },
+    { name: "CSS5", level: 70 },
+    { name: "PostgreSQL & MySQL", level: 60 },
   ];
 
   const softSkills = [
@@ -37,14 +36,14 @@ export const SkillsTab = () => {
   };
 
   return (
-    <div className="w-[90%] sm:w-[85%] md:w-[80%] lg:w-full max-w-xl text-gray-300 mt-5 p-3 sm:p-4 bg-white/10 rounded-xl shadow-lg">
+    <div className="w-[95%] sm:w-[90%] md:w-[85%] lg:w-full max-w-xl text-gray-300 mt-6 p-3 sm:p-4 bg-white/10 rounded-xl shadow-lg">
       {/* Sub Tabs */}
       <div className="flex flex-wrap justify-center border-b border-gray-700 mb-4 shadow-lg shadow-purple-400/30 font-typographica overflow-x-auto no-scrollbar">
         {Object.keys(sections).map((section) => (
           <button
             key={section}
             onClick={() => setActive(section)}
-            className={`flex-1 min-w-[100px] text-center py-2 text-base sm:text-lg md:text-xl lg:text-2xl font-medium transition-colors duration-200 ${
+            className={`flex-1 min-w-[100px] text-center py-2 text-sm sm:text-base md:text-lg lg:text-xl font-medium transition-colors duration-200 ${
               active === section
                 ? "border-b-2 border-purple-500 text-purple-400"
                 : "text-gray-400 hover:text-gray-200"
