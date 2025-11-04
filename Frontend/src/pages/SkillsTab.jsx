@@ -11,12 +11,16 @@ export const SkillsTab = () => {
     { name: "Git & GitHub", level: 85 },
     { name: "Postman", level: 80 },
     { name: "Figma", level: 75 },
+    {name:'web hosting platforms', level:60},
   ];
 
   const frameworks = [
     { name: "React.js", level: 90 },
     { name: "TailwindCSS", level: 85 },
     { name: "Django", level: 65 },
+    {name: "HTML5", level:80},
+    {name: "CSS5", level:70},
+    {name: "Postgresql & Mysql", level:60},
   ];
 
   const softSkills = [
