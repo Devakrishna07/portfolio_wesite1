@@ -23,7 +23,7 @@ const FloatingDockMobile = ({
 }) => {
   const [open, setOpen] = useState(false);
   return (
-    <div className={cn("relative block md:hidden", className)}>
+    <div className={cn("hidden", className)}>
       <AnimatePresence>
         {open && (
           <motion.div
@@ -47,6 +47,7 @@ const FloatingDockMobile = ({
                 transition={{ delay: (items.length - 1 - idx) * 0.05 }}>
                 <a
                   href={item.href}
+                  onClick={item.onClick}
                   key={item.title}
                   className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 dark:bg-neutral-900">
                   <div className="h-4 w-4">{item.icon}</div>
@@ -75,11 +76,11 @@ const FloatingDockDesktop = ({
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
       className={cn(
-        "mx-auto hidden h-16 items-end gap-4 rounded-2xl px-4 pb-3 md:flex dark:bg-neutral-900",
+        "mx-auto hidden h-16 items-end gap-4 rounded-2xl px-4 pb-3 flex dark:bg-neutral-900",
         className
       )}>
       {items.map((item) => (
-        <IconContainer mouseX={mouseX} key={item.title} {...item} />
+        <IconContainer mouseX={mouseX} key={item.title} {...item} onClick={item.onClick} />
       ))}
     </motion.div>
   );
@@ -150,7 +151,7 @@ function IconContainer({
         </AnimatePresence>
         <motion.div
           style={{ width: widthIcon, height: heightIcon }}
-          className="flex items-center justify-center text-black font-bold">
+          className="flex items-center justify-center text-black font-bold ">
           {icon}
         </motion.div>
       </motion.div>

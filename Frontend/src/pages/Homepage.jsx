@@ -3,26 +3,25 @@ import { BackgroundGradientAnimation } from '../components/ui/background-gradien
 import pic from '../assets/images/profpiccpy.png'
 import { ContainerTextFlip } from '../components/ui/container-text-flip'
 import { FloatingDock } from '../components/ui/floating-dock'
-
-// ✅ Updated icons here
+import resumePdf from "../assets/images/resume.pdf"
 import {
   IconBrandGithub,
   IconBrandLinkedin,
   IconBrandInstagram,
   IconFileText,
 } from "@tabler/icons-react";
+import resumepdf from '../assets/images/resume.pdf'
+import { href } from 'react-router-dom'
 
 function Homepage() {
 
   // ✅ Updated links array
   const links = [
     {
-      title: "Resume",
-      icon: (
-        <IconFileText className="h-full w-full " />
-      ),
-      href: "/resume.pdf",
-    },
+    title: "Resume",
+    icon: <IconFileText className="h-full w-full " />,
+    href: "https://drive.google.com/file/d/1TGlZyhGa2pJI4II7cAp3R5MwUpsre_Nl/view?usp=drive_link"
+  },
     {
       title: "GitHub",
       icon: (
