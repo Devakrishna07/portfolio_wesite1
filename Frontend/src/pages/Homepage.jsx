@@ -41,7 +41,7 @@ function Homepage() {
       icon: (
         <IconBrandInstagram className="h-full w-full" />
       ),
-      href: "https://instagram.com/deva_krishna_nr",
+      href:"https://www.instagram.com/devakrishna_nr?igsh=MWI3bGl4NzlkdnM5dA=="
     },
   ];
 
